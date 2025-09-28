@@ -1,102 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>WiFi Setup</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройка WiFi подключения</title>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden; /* Убираем прокрутку */
-        }
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #1F1F1F;
+            color: #E0E0E0;
+            margin: 0;
             padding: 20px;
-            color: #fff; /* Белый текст для контраста */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Гарантируем, что body занимает всю высоту */
-            position: relative; /* Для позиционирования видео */
+            min-height: 100vh;
         }
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Видео растягивается, сохраняя пропорции */
-            z-index: -1; /* Помещаем видео за контент */
-        }
-        h1 {
-            font-size: 36px; /* Увеличенный размер текста */
-            color: #fff;
-            margin: 0; /* Убираем отступы для точного позиционирования */
-            padding: 10px 20px; /* Внутренние отступы для текста */
-        }
-        .title-container {
-            background-color: rgba(80, 80, 80, 0.062); /* Полупрозрачный фон для заголовка */
-            backdrop-filter: blur(10px); /* Эффект блюра для заголовка */
-            -webkit-backdrop-filter: blur(10px); /* Поддержка для WebKit-браузеров */
-            border-radius: 10px; /* Скругленные углы */
-            margin-bottom: 20px; /* Отступ снизу для разделения от формы */
-        }
-        input[type="text"], input[type="password"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 16px;
-            border: 1px solid #ccccccad;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.123); /* Полупрозрачный фон для полей ввода */
-            backdrop-filter: blur(5px); /* Эффект блюра для полей */
-            -webkit-backdrop-filter: blur(5px); /* Поддержка для WebKit-браузеров */
-            color: #fff; /* Белый текст для читаемости */
-        }
-        input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: rgba(76, 175, 80, 0.3); /* Полупрозрачный зеленый фон для кнопки */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            backdrop-filter: blur(5px); /* Эффект блюра для кнопки */
-            -webkit-backdrop-filter: blur(5px); /* Поддержка для WebKit-браузеров */
-        }
-        input[type="submit"]:hover {
-            background-color: rgba(69, 160, 73, 0.3); /* Чуть темнее при наведении */
-        }
-        form {
-            max-width: 400px;
-            background-color: rgba(80, 80, 80, 0.062); /* Полупрозрачный фон формы */
-            padding: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px); /* Эффект блюра для формы */
-            -webkit-backdrop-filter: blur(10px); /* Поддержка для WebKit-браузеров */
-        }
+
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 1; /* Контент поверх видео */
+            background-color: #2D2D2D;
+            padding: 24px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #FFFFFF;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #E0E0E0;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #3C3C3C;
+            color: #E0E0E0;
+            border: 1px solid #555555;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #0078D7;
+            outline: none;
+        }
+
+        button {
+            background-color: #0078D7;
+            color: #FFFFFF;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #005EA2;
+        }
+
+        button:active {
+            background-color: #004578;
+        }
+
+        /* Windows 10 Mobile Styles */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+                background-color: #1F1F1F;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 16px;
+            }
+
+            h1 {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 12px;
+            }
+
+            label {
+                font-size: 16px;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+                font-size: 18px;
+                padding: 12px;
+                background-color: #3C3C3C;
+            }
+
+            button {
+                padding: 14px;
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
-    <video autoplay muted loop playsinline>
-        <source src="/static/background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
     <div class="container">
-        <div class="title-container">
-            <h1>Настройка WiFi подключения</h1>
-        </div>
-        <form method="POST">
-            SSID: <input type="text" name="ssid" required><br>
-            Пароль: <input type="password" name="psk" required><br>
-            <input type="submit" value="Подключить">
+        <h1>Настройка WiFi подключения</h1>
+        <form>
+            <div class="form-group">
+                <label for="ssid">SSID:</label>
+                <input type="text" id="ssid" name="ssid" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Подключиться</button>
         </form>
     </div>
 </body>
